@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-lock"></i> Password Generator</h1>
+            <p>Secure, customizable passwords for any purpose</p>
+        </header>
+        
+        <main>
+            <div class="options">
+                <div class="option-group">
+                    <div class="option-title">
+                        <i class="fas fa-sliders-h"></i>
+                        <h2>Password Length</h2>
+                    </div>
+                    <div class="slider-container">
+                        <span>1</span>
+                        <input type="range" id="length-slider" min="1" max="50" value="12">
+                        <span class="length-value" id="length-value">12</span>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <div class="option-title">
+                        <i class="fas fa-cogs"></i>
+                        <h2>Character Options</h2>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="uppercase" checked>
+                            <label for="uppercase">Uppercase (A-Z)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lowercase" checked>
+                            <label for="lowercase">Lowercase (a-z)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="numbers" checked>
+                            <label for="numbers">Numbers (0-9)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="symbols">
+                            <label for="symbols">Symbols (!@#$%^&*)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="exclude-ambiguous">
+                            <label for="exclude-ambiguous">Exclude Ambiguous (0,O,1,l,I)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="generate-btn" id="generate-btn">
+                <i class="fas fa-sync-alt"></i> Generate Password
+            </button>
+            
+            <div class="result-container">
+                <div class="result-header">
+                    <h2 class="result-title">Generated Password</h2>
+                    <button class="copy-btn" id="copy-btn">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                <div class="password-display" id="password-display">Your password will appear here</div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Secure Password Generator &copy; 2023 | Created with Python Flask</p>
+        </footer>
+    </div>
+    
+    <div class="notification" id="notification">Password copied to clipboard!</div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
